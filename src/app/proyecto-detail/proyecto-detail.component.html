@@ -1,1 +1,22 @@
-<p>proyecto-detail works!</p>
+<!--<p>proyecto-detail works!</p>-->
+<div class="container">
+    <form [formGroup]="proyectoForm">
+        <div class="form-group">
+            <label for="nombre">Nombre del proyecto</label>
+            <input type="text" id="nombre" class="form-control" name="nombre" formControlName="nombre">
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea name="descripcion" id="descripcion" class="form-control" formControlName="descripcion"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="fechaInicio">Fecha de inicio</label>
+            <input type="date" name="fechaInicio" id="fechaInicio" class="form-control" formControlName="fechaInicio">
+        </div>
+        <div class="form-group">
+            <label for="fechaFin">Fecha de finalización</label>
+            <input type="date" name="fechaFin" id="fechaFin" class="form-control" formControlName="fechaFin">
+        </div>
+        <button class="btn btn-primary" (click)="crear()">Crear proyecto</button>
+    </form>
+</div>

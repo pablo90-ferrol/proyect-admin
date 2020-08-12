@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-proyecto-detail',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyectoDetailComponent implements OnInit {
 
-  constructor() { }
+  proyectoForm = this.fb.group({
+    nombre: [null, Validators.required],
+    descripcion: null,
+    fechaInicio: [null, Validators.required],
+    fechaFin: null
+  })
+
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
+  crear() {
+    this.http.post<any>(environment.apiBaseUrl + "proyectos", this.proyectoForm.value)
+      .subscribe(
+        proyecto => {
+          alert("Proyecto creado con éxito con id=" + proyecto.id)
+        },
+        error => {
+          alert("Error creando el proyecto: " + error.message)
+        })
+  }
 }

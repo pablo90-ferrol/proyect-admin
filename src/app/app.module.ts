@@ -9,6 +9,7 @@ import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 import { RolesListComponent } from './roles-list/roles-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProyectoDetailComponent } from './proyecto-detail/proyecto-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { ProyectoDetailComponent } from './proyecto-detail/proyecto-detail.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

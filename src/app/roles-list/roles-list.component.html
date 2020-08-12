@@ -1,1 +1,17 @@
-<p>roles-list works!</p>
+<!--<p>roles-list works!</p>-->
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rol of roles">
+                <td>{{rol.id}}</td>
+                <td>{{rol.nombre}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,1 +1,21 @@
-<p>tareas-list works!</p>
+<!--<p>tareas-list works!</p>-->
+<div class="container">
+    <table class="table">
+        <thead>
+            <th class="col">ID</th>
+            <th class="col">Nombre</th>
+            <th class="col">Fecha Inicio</th>
+            <th class="col">Fecha Vencimiento</th>
+            <th class="col">Fecha Fin</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tarea of tareas">
+                <td>{{tarea.id}}</td>
+                <td>{{tarea.nombre}}</td>
+                <td>{{tarea.fechaInicio | date: 'dd/MM/yyyy'}}</td>
+                <td>{{tarea.fechaVencimiento | date: 'dd/MM/yyyy'}}</td>
+                <td>{{tarea.fechaFin | date: 'dd/MM/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

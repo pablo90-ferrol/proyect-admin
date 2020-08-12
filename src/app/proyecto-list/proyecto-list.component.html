@@ -13,8 +13,8 @@
                 <td>{{proyecto.id}}</td>
                 <td>{{proyecto.nombre}}</td>
                 <td>{{proyecto.descripcion}}</td>
-                <td>{{proyecto.fechaInicio | date}}</td>
-                <td>{{proyecto.fechaEntrega}}</td>
+                <td>{{proyecto.fechaInicio | date: 'dd/MM/yyyy'}}</td>
+                <td>{{proyecto.fechaEntrega | date: 'dd/MM/yyyy'}}</td>
             </tr>
         </tbody>
     </table>

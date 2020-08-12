@@ -8,6 +8,7 @@ import { TareasListComponent } from './tareas-list/tareas-list.component';
 import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 import { RolesListComponent } from './roles-list/roles-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProyectoDetailComponent } from './proyecto-detail/proyecto-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProyectoListComponent,
     TareasListComponent,
     UsuariosListComponent,
-    RolesListComponent
+    RolesListComponent,
+    ProyectoDetailComponent
   ],
   imports: [
     BrowserModule,

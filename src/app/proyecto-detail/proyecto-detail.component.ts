@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-proyecto-detail',
@@ -20,7 +20,7 @@ export class ProyectoDetailComponent implements OnInit {
 
   id = undefined;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -43,13 +43,14 @@ export class ProyectoDetailComponent implements OnInit {
     this.http.post<any>(environment.apiBaseUrl + "proyectos", this.proyectoForm.value)
       .subscribe(
         proyecto => {
-          alert("Proyecto creado con éxito con id=" + proyecto.id)
+          alert("Proyecto creado con éxito con id=" + proyecto.id);
+          this.router.navigate(["proyectos"]);
         },
         error => {
           alert("Error creando el proyecto: " + error.message)
         })
   }
-  
+
   modificar() {
     this.http.put(
       environment.apiBaseUrl + "proyectos/" + this.id,
@@ -57,6 +58,7 @@ export class ProyectoDetailComponent implements OnInit {
     .subscribe(
       proyecto => {
         alert("Proyecto actualizado");
+        this.router.navigate(["proyectos"]);
       },
       error => {
         alert("Error actualizando proyecto: " + error.message);
@@ -70,6 +72,7 @@ export class ProyectoDetailComponent implements OnInit {
       .subscribe(
         () => {
           alert("Proyecto eliminado con éxito.");
+          this.router.navigate(["proyectos"]);
         },
         error => {
           alert("Error eliminado el proyecto: " + error.message);

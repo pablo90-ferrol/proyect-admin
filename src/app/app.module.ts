@@ -10,6 +10,7 @@ import { RolesListComponent } from './roles-list/roles-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProyectoDetailComponent } from './proyecto-detail/proyecto-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TareaDetailComponent } from './tarea-detail/tarea-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TareasListComponent,
     UsuariosListComponent,
     RolesListComponent,
-    ProyectoDetailComponent
+    ProyectoDetailComponent,
+    TareaDetailComponent
   ],
   imports: [
     BrowserModule,

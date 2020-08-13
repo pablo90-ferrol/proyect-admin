@@ -12,7 +12,6 @@ import { ActivatedRoute } from '@angular/router';
 export class ProyectoDetailComponent implements OnInit {
 
   proyectoForm = this.fb.group({
-    id: null,
     nombre: [null, Validators.required],
     descripcion: null,
     fechaInicio: [null, Validators.required],
@@ -26,10 +25,11 @@ export class ProyectoDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       if (params.id !== "_nuevo") {
-        this.http.get(environment.apiBaseUrl + "proyectos/" + params.id)
+        this.http.get<any>(environment.apiBaseUrl + "proyectos/" + params.id)
           .subscribe(
             proyecto => {
               this.proyectoForm.patchValue(proyecto);
+              this.id = proyecto.id;
             },
             error => {
               alert("No se pudo cargar el proyecto");
@@ -49,7 +49,7 @@ export class ProyectoDetailComponent implements OnInit {
           alert("Error creando el proyecto: " + error.message)
         })
   }
-
+  
   modificar() {
     this.http.put(
       environment.apiBaseUrl + "proyectos/" + this.id,

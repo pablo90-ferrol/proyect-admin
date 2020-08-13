@@ -1,1 +1,30 @@
-<p>tarea-detail works!</p>
+<!--<p>tarea-detail works!</p>-->
+<div class="container">
+    <form [formGroup]="tareaForm">
+        <div class="form-group">
+            <label for="nombre">Nombre de la tarea</label>
+            <input type="text" id="nombre" class="form-control" name="nombre" formControlName="nombre">
+        </div>
+        <div class="form-group">
+            <label for="proyectoId">Proyecto</label>
+            <select name="proyectoId" id="proyectoId" class="form-control" formControlName="proyectoId">
+                <option *ngFor="let proyecto of proyectos" [value]="proyecto.id">{{proyecto.nombre}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fechaInicio">Fecha de inicio</label>
+            <input type="date" name="fechaInicio" id="fechaInicio" class="form-control" formControlName="fechaInicio">
+        </div>
+        <div class="form-group">
+            <label for="fechaFin">Fecha de finalización</label>
+            <input type="date" name="fechaFin" id="fechaFin" class="form-control" formControlName="fechaFin">
+        </div>
+        <div class="form-group">
+            <label for="fechaVencimiento">Fecha de vencimiento</label>
+            <input type="date" name="fechaVencimiento" id="fechaVencimiento" class="form-control" formControlName="fechaVencimiento">
+        </div>
+        <button *ngIf="!id" class="btn btn-primary" (click)="crear()">Crear tarea</button>
+        <button *ngIf="id" class="btn btn-primary" (click)="modificar()">Modificar tarea</button>
+        <button *ngIf="id" class="btn btn-outline-danger" (click)="eliminar()">Eliminar tarea</button>
+    </form>
+</div>

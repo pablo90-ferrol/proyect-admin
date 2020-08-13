@@ -11,11 +11,13 @@
         <tbody>
             <tr *ngFor="let tarea of tareas">
                 <td>{{tarea.id}}</td>
-                <td>{{tarea.nombre}}</td>
+                <td><a [routerLink]="tarea.id">{{tarea.nombre}}</a></td>
                 <td>{{tarea.fechaInicio | date: 'dd/MM/yyyy'}}</td>
                 <td>{{tarea.fechaVencimiento | date: 'dd/MM/yyyy'}}</td>
                 <td>{{tarea.fechaFin | date: 'dd/MM/yyyy'}}</td>
             </tr>
         </tbody>
     </table>
+
+    <a routerLink="_nueva" class="btn btn-primary">Añadir Tarea</a>
 </div>

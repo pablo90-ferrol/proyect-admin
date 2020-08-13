@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-tareas-list',
@@ -7,12 +8,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./tareas-list.component.css']
 })
 export class TareasListComponent implements OnInit {
-  tareas = []
+
+  tareas = [];
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<any[]>("http://localhost:3000/api/tareas")
+    this.http.get<any[]>(environment.apiBaseUrl + "tareas")
     .subscribe(tareas => {
       this.tareas = tareas;
     })

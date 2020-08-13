@@ -2,19 +2,21 @@
 <div class="container">
     <table class="table">
         <thead>
-            <th class="col">ID</th>
-            <th class="col">Nombre</th>
-            <th class="col">Descripción</th>
-            <th class="col">Fecha Inicio</th>
-            <th class="col">Fecha Fin</th>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Fecha inicio</th>
+                <th scope="col">Fecha fin</th>
+            </tr>
         </thead>
         <tbody>
             <tr *ngFor="let proyecto of proyectos">
                 <td>{{proyecto.id}}</td>
-                <td>{{proyecto.nombre}}</td>
+                <td><a [routerLink]="proyecto.id">{{proyecto.nombre}}</a></td>
                 <td>{{proyecto.descripcion}}</td>
-                <td>{{proyecto.fechaInicio | date: 'dd/MM/yyyy'}}</td>
-                <td>{{proyecto.fechaEntrega | date: 'dd/MM/yyyy'}}</td>
+                <td>{{proyecto.fechaInicio | date:'dd/MM/yyyy'}}</td>
+                <td>{{proyecto.fechaEntrega | date:'dd/MM/yyyy'}}</td>
             </tr>
         </tbody>
     </table>
